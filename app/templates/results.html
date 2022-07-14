@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='images/ai-camp-logo-128x128.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/aisle.png')}}" type="image/x-icon">
     <meta name="description" content="">
 
     <title>results</title>
@@ -15,78 +15,26 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top header-white main-nav navbar-togglable">
-        <div class="container">
-            <a class="navbar-brand" href="/#">
-                <img src="{{ url_for('static', filename='images1/ai camp logo1.svg')}}" width="55" height="55" alt="">
-              </a>
-            <a class="navbar-brand " href="/#">
-                <h3 class="colored-text">Emotion Detector</h3>
-            </a>
-            <!-- Toggler -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="fa fa-bars"></span>
-            </button>
 
-            <!-- Collapse -->
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <!-- Links -->
-                <ul class="navbar-nav row">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle colored-text" href="#home" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Links
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarWelcome">
-                                 <a class="dropdown-item " target="_blank" href="https://github.com/zikegcwk/aicamp_emotion">
-                                    Github Repo
-                                </a>
-                                <a class="dropdown-item " target="_blank" href="https://medium.com/@beatrice.miha/i-learned-how-to-learn-dive-into-the-deepest-ocean-3add9449eb7e">
-                                    Beatrice's Post
-                                </a> 
-                                <a class="dropdown-item " target="_blank" href="https://medium.com/@thomaschen395/how-ai-camp-prepared-me-for-the-real-world-7f2a8c28cde5">
-                                    Thomas's Post
-                                </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="/#home" class="nav-link colored-text">
-                                Home
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="/#demo" class="nav-link colored-text">
-                                Demo
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="/#meet_the_team" class="nav-link colored-text">
-                                The Team
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="/#our_work" class="nav-link colored-text">
-                                Our Work
-                            </a>
-                        </li>
-                    </ul>
-                <ul class="ml-lg-auto list-unstyled m-0 nav-btn">
-                    <li><a href="https://michaelzhang1.typeform.com/to/LWIfVW1H?typeform-source=www.ai-camp.org" target="_blank" class="btn btn-green btn-circled btn-two">Register for AI Camp</a></li>
-                </ul>
-            </div> <!-- / .navbar-collapse -->
-        </div> <!-- / .Container -->
-    </nav>
+      <section class="mbr-section mbr-section-nopadding" id="services-2" data-rv-view="5" style="padding-top: 60px; margin-top: 60px; padding-bottom: 60px">
+            <div class="row">
+                <div class="col-sm-12 col-lg-6 text-center">
+                    <h3 class="section-title display-4 results-title"></h3>
 
-    <section id="msg-box4-2" data-rv-view="2" style="background-color: rgb(255, 255, 255); margin-top: 8rem; padding-top: 3rem; padding-bottom: 0rem;">
+                    <div class="lead">
+                        <p class="section-text results-text"></p>
+                    </div>
+
+                </div>
+            </div>
+    </section>
+  
+    <section id="msg-box4-2" data-rv-view="2" style="background-color: rgb(0,0,0); margin-top: 8rem; padding-top: 3rem; padding-bottom: 0rem;">
             <div class="container">  
         <div class="row">
+           <!--  <h3 class="lead" color="#ffffff">Your Cereal Aisle</h3> -->
                 <div class="col justify-content-center align-items-center text-center">
-                    <h3 class="section-title display-4">Recognition Results</h3>
-                    <h3 class="we-found btn-text display-4">We found <strong><span style='text-transform: capitalize;'>{{labels}}!</span></strong></h3>
-
-                    {% if labels == 'no emotion' %}
-                    <div>We missed? See why below.</div>
-                    {% else %}
-                    <div class="lead"><em>with {{ confidences }} confidence.</em></div>
-                    {% endif %}
+                    <div class="lead" color="white"><em>The aisle has been marked with the label <q>{{labels}}</q> with {{confidences}} confidence, respectively.</em></div>
 
                     <a class="mb-0" id='seefood_button'>
                         <form action="/" id='seefood_form' method=post enctype=multipart/form-data>
@@ -107,15 +55,32 @@
     <section class="mbr-section mbr-section-nopadding" id="services-2" data-rv-view="5" style="padding-top: 60px; margin-top: 60px; padding-bottom: 60px">
             <div class="row">
                 <div class="col-sm-12 col-lg-6 text-center">
-                    <h3 class="section-title display-4 results-title">Why do we miss sometimes?</h3>
+                    <h3 class="section-title display-4 results-title">How the Cereal Restock Detector work?</h3>
 
                     <div class="lead">
-                        <p class="section-text results-text">Given just three weeks, we only had time to train our model with 5 emotions on about 6.7k labeled data. If we have more time, we can improve our model performance!&nbsp;</p>
+                        <p class="section-text results-text">Our team collected images from Google images and labeled them using Roboflow. We trained YOLOv5 on that dataset and put our trained model on this website.&nbsp;</p>
                     </div>
 
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <img class="mbr-figure-graph" src="{{ url_for('static', filename='images/clem-5-emo-ncm-671x690.jpg')}}">
+                    <img class="mbr-figure-graph" src="{{ url_for('static', filename='images/PR_curve.png')}}">
+                </div>
+            </div>
+    </section>
+  
+
+  <section class="mbr-section mbr-section-nopadding" id="services-2" data-rv-view="5" style="padding-top: 60px; margin-top: 60px; padding-bottom: 60px">
+            <div class="row">
+                <div class="col-sm-12 col-lg-6 text-center">
+                    <h3 class="section-title display-4 results-title">Evaluation of the Model</h3>
+
+                    <div class="lead">
+                        <p class="section-text results-text">What is the F1 score of our model? What is a F1 score? Is that good for the task? Where can our model improve? Which classes is our model better at, restock, out-of-place, or disorganized?</p>
+                    </div>
+
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <img class="mbr-figure-graph" src="{{ url_for('static', filename='images/PR_curve.png')}}">
                 </div>
             </div>
     </section>
@@ -129,64 +94,16 @@
                 <div class="footer-widget">
                         <!-- Brand -->
                         <a href="#" class="footer-brand text-white">
-                            <h2 class="section-title section-text">AI Camp</h2>
+                            <h2 class="section-title section-text">Cereal Restock Detector</h2>
                         </a>
-                        <h1>Learn AI in three weeks with zero coding experience.</h1>
-                        <p>AI Camp teaches middle and high school students machine learning and career frameworks through real life experience. <br>Prepare for your major and career by joining us!</p>
+                        <h1>Improving efficiency in your local supermarket.</h1>
+                        <p>Cereal Restock Detector detects whether the aisle needs tending to. It can detect out-of-place objects and disorganized places, but its strong suit is detecting areas that need to be restocked.</p>
                         <p class="mb-0">
                             <a href="https://michaelzhang1.typeform.com/to/LWIfVW1H?typeform-source=www.ai-camp.org" target="_blank" margin-bottom="20px" class="btn btn-text btn-white btn-circled">
-                                Register for AI Camp
+
                             </a>
                         </p>
                 </div>
-                <div class="footer-widget footer-about">
-                    <h3>About</h3>
-                    <!-- Links -->
-                    <ul class="footer-links ">
-                        <li>
-                            <u>
-                            <a href="https://www.ai-camp.org/" target="_blank">
-                                AI Camp Website
-                            </a>
-                            </u>
-                        </li>
-                        <li>
-                            <u>
-                            <a href="https://www.ai-camp.org/terms-of-service" target="_blank">
-                                Terms of Services
-                            </a>
-                            </u>
-                        </li>
-                        <li>
-                            <u>
-                            <a href="https://www.ai-camp.org/privacy-notice" target="_blank">
-                                Privacy Policy
-                            </a>
-                        </u>
-                        </li>
-                        <li>
-                            <u>
-                            <a href="https://www.ai-camp.org/faq" target="_blank">
-                                Frequently Asked Questions
-                            </a>
-                        </u>
-                        </li>
-                        <li>
-                            <u>
-                            <a href="mailto: hello@ai-camp.org" target="_blank">
-                                Contact
-                            </a>
-                        </u>
-                        </li>
-                        <li>
-                        <u>
-                            <a href="https://www.youtube.com/channel/UCUGJzo5EwViLGpAgYphNyzg/featured" target="_blank">
-                                YouTube
-                            </a>
-                        </u>
-                        </li>
-                    </ul>
-            </div>  
                 </div>
             </div> <!-- / .row -->
 
@@ -194,9 +111,6 @@
             <div class="row text-right pt-5">
                 <div class="col-lg-12">
                     <!-- Copyright -->
-                    <p class="footer-copy ">
-                        &copy; Copyright <span class="current-year">AI Camp</span> All rights reserved.
-                    </p>
                 </div>
             </div> <!-- / .row -->
         </div>

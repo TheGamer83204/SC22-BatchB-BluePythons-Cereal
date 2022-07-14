@@ -1,117 +1,74 @@
-# Computer Vision Web Scaffold
-A scaffold for deploying dockerized flask applications.
+# Cereal Sentinel
 
-If you have any questions, feel free to open an issue on [Github](https://github.com/organization-x/omni/issues).
+### What does it do?
 
-### Video Guide
-[![Deploy a Web Project with Flask](https://img.youtube.com/vi/JUb-PpejA7w/0.jpg)](https://youtu.be/JUb-PpejA7w "Deploy a Web Project with Flask")
+Cereal Sentinel makes the task of maintaining a perfect cereal aisle easier than ever before. It detects where a cereal aisle needs to be restocked, and in addition, it detects out-of-place or disorganized items. To build Cereal Sentinel, we labeled a dataset scraped from Google Images and trained YOLOv5 on it.
 
-This guide covers how you can quickly deploy most projects with the [Flask](https://flask.palletsprojects.com/) framework and our omni scaffold.
+### Examples
 
-### Quickstart Guide for Local Development
+Here are some example predictions of Cereal Sentinel:
 
-First clone this repository through 
+<img src="app/static/images1/Copy of val_batch0_labels.jpg" width=650 height=650>
+<img src="app/static/images1/val_batch1_labels.jpg" width=650 height=650>
 
-`https://github.com/organization-x/omni`
+<!--### Quickstart Guide for Local Development
 
-cd into the `/app` folder
+First clone this repository. Navigate into the `/app` folder and run
+`python3 -m main` to view the website.-->
 
-`python3 -m pip install -r requirements.txt`
+<div>
+  <div>
 
-edit line 29 the `main.py` file to either the URL of the cocalc server you are on or `localhost` if you are running it on your own PC
+## About Cereal Sentinel
 
-Then, clone ultralytics yolov5 in the app folder, by running 
+Cereal Sentinel helps employees see which cereal aisle needs to be restocked, and which cereal or item is misplaced.  This will make it more efficient for employees to keep cereal aisles perfect, as they would be able to clean up isles methodically, only when the isle needs cleaning.
 
-`git clone https://github.com/ultralytics/yolov5`
-`pip install -r yolov5/requirements.txt`
+### How did we create the dataset?
 
-Run
+We used SerpAPI to scrape images from Google Images and then used Roboflow to detect the missing and misplaced cereal. We applied several data augmentations to our data to improve performance: 
 
- `python3 -m main`
+* Outputs per training example: 3
+* Rotation: Between -15° and +15°
+* Brightness: Between -25% and +25%
+* Blur: Up to 5.25px
+* Noise: Up to 3% of pixels
 
-to start the server on local, most changes while developing will be picked up in realtime by the server
+After applying the augmentations to the training data, we get the following train-validation-test split:
 
-### Quickstart Guide for Local Deployment
+<img src="app/static/images1/Screen Shot 2022-07-14 at 11.18.56 AM.png" width=650 height=150>
 
-Make sure docker is installed on your system. Look that up if you don't know what that means.
+Our model suffers from class imbalance and noisy labels, as illustrated by the following graphic: 
 
-cd into the root director of the repo then run 
+<img src="app/static/images1/Screen Shot 2022-07-14 at 11.30.14 AM.png"   width="250px"  height="341px"  style="object-fit:cover"/>
 
-`docker build -t omni .`
+The "restock" label is by far more prominent than the others. We ran into this problem because Google Images is more likely to display cereal aisles in need of restocking, while out\-of\-place and disorganized objects are less prevalent. We also have many different labels for the same things due to human bias: "Missing," "out of place," and "restock" refer to the same concept. However, in our subsequent iterations of training where we removed the noisy labels, the models performed worse. Hence we kept the redundant labels. This does not seem to be a problem in the confusion matrix of the predictions for the validation set, since the model never falsely predicts a noisy label:
 
-once built, run
+<img src="app/static/images/Screen Shot 2022-07-14 at 2.03.28 PM.png"   width="400"  height="360"  style="object-fit:cover"/>
 
-`docker run -d -p 9000:80 --restart=unless-stopped --name omni omni`
+#### How did we train the model? 
 
-you should then be able to see the `omni` container running when you run 
+We trained YOLOv5 using Google Colab's GPU and evaluated it using weights and biases. We trained three runs, and found that the second run performed the best. Here are some plots from our second plot:
 
-`docker ps -a`
+<img src="app/static/images1/results.png"   width="900"  height="450"  style="object-fit:cover"/>
+<div>
+    
+We can see that the training losses decreased consistently with epochs (x-axis), but the validation losses increased. This behavior is consistent with overfitting, so the model performs words at a larger epoch. Therefore, we are using the weights of our model at epoch 42, which was found to have the lowest validation losses. At this epoch, our model has a precision of approximately 0.8 and a recall of approximately 0.1. The high precision means that any prediction our model makes is likely to have a corresponding true label, but the low recall means that our model retrieves only a fraction of true labels. This is ideal behavior for an understaffed grocery store because it means that an employee will not be barraged with false notifications that a cereal aisle needs tending.
+  
+<div>
 
-if it seems to be stuck (i.e. constantly listed as `Restarting`), something is wrong with the docker image or code inside causing it to repeatedly fail.
+## Our Team
 
-you can start debugging the project by running 
+* Victoria Li: Frontend Engineer & Visionary
+* Mahnoor Babra: Frontend Designer
+* Daniel Mercier: Product Manager
+* Ethan Le: Data Scientist
+* Danzel Ngo: Backend Developer
+* Kevin Kim: Backend Developer
+* Adam Mehdi: Data Science Instructor
+    
 
-`docker logs -f omni` 
+### References
 
-or
+* [YOLOv5](https://github.com/ultralytics/yolov5)
+* [OmniCV Repository](https://github.com/organization-x/omni/tree/omni_cv)
 
-`docker exec -it omni /bin/bash` for an interactive bash terminal (this option only works if the container is running and not stuck in a restart loop)
-
-### Common Issues
-
-`$'\r': command not found` when attempting to start docker container
-
-this is caused by the the `entrypoint.sh` script somehow having CLRF line endings instead of LF line endings.
-
-to fix this run
-
-`sed -i 's/\r$//' entrypoint.sh`
-
-### File Structure
-The files/directories which you will need to edit are **bolded**
-
-**DO NOT TOUCH OTHER FILES. THIS MAY RESULT IN YOUR PROJECT BEING UNABLE TO RUN**
-
-- .gitignore
-- config.py
-- Dockerfile
-- READMD.md
-- entrypoint.sh
-- nginx_host
-- host_config
-- app/
-     - **main.py**
-     - **best.pt** <- you will need to upload this yourself after cloning the repo when developing the site
-     - **requirements.txt**
-     - **utils.py**
-     - templates/
-          - **index.html**
-
-### How to upload best.pt to your file structure?
-Run 
-`cp ../path/to/best.pt best.pt`
-### best.pt ###
-The weights file - must upload if you are running file on coding center or are trying to deploy.
-### main.py ###
-Contains the main flask app itself.
-### requirements.txt ###
-Contains list of packages and modules required to run the flask app. Edit only if you are using additional packages that need to be pip installed in order to run the project.
-
-To generate a requirements.txt file you can run
-
-`pip list --format=freeze > app/requirements.txt`
-
-the requirements.txt file will then be updated. Keep in mind: some packages you install on one operating system may not be available on another. You will have to debug and resolve this yourself if this is the case.
-### static/ ###
-Contains the static images, CSS, & JS files used by the flask app for the webpage. You will need to create this and put files in it. Place all your images used for your website in static/images/ so that you can then reference them in your html files.
-### utils.py ###
-Contains common functions used by the flask app. Put things here that are used more than once in the flask app.
-### templates/ ###
-Contains the HTML pages used for the webpage. Edit these to fit your project. index.html is the demo page.
-### Files used for deployment ###
-`config.py`
-`Dockerfile`
-`entrypoint.sh`
-`nginx_host`
-`host_config`
-**Only modify `host_config`. Do not touch the other files.**

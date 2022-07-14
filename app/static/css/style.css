@@ -29,7 +29,8 @@ Version      : 1.0
 */
 @import url("https://fonts.googleapis.com/css?family=Muli:300,400,500,700,900");
 html {
-	font-family: sans-serif;
+	font-family: 'Quicksand', sans-serif;
+    font-family: 'Assistant', sans-serif;
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
@@ -38,14 +39,14 @@ html {
 }
 
 body {
-	font-family: "Muli", sans-serif;
 	font-size: 15px;
 	line-height: 1.75;
 	margin: 0;
 	text-align: left;
-	background-color: #fff;
+	background-color: #ffffff;
 	font-weight: 400;
-	color: #6c757d;
+	color: #482a23;
+    font-family: 'Quicksand', sans-serif;
 }
 
 /*--------------------
@@ -63,48 +64,63 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Muli", sans-serif;
-	font-weight: 700;
+   font-family: 'Quicksand', sans-serif;
 	line-height: 1.35;
 	margin-bottom: 0.5rem;
-	color: #212529;
+	color: #482a23 ;
 }
 
 .h1,
 h1 {
 	font-size: 2.125rem;
 	line-height: 40px;
+    font-family: 'Quicksand', sans-serif;
+    color: #482a23;
 }
 
 .h2,
 h2 {
 	font-size: 1.625rem;
+   font-family: 'Quicksand', sans-serif;
+    color:#9f7b7b
 }
 
 .h3,
 h3 {
 	font-size: 1.375rem;
+    font-family: 'Quicksand', sans-serif;
+    color: #482a23;
 }
 
 .h4,
 h4 {
 	font-size: 1.125rem;
+    font-family: 'Quicksand', sans-serif;
+    color: #482a23;
 }
 
 .h5,
 h5 {
 	font-size: 0.9375rem;
+    font-family: 'Quicksand', sans-serif;
+    color: #482a23;
 }
 
 .h6,
 h6 {
 	font-size: 0.75rem;
+    font-family: 'Assistant', sans-serif;
+    color: #482a23 ;
+
 }
 .btn-text {
 	font-size: 1.5rem;
+    font-family: 'Quicksand', sans-serif;
+    color:#482a23;
 }
 .btn-two {
 	font-size: 1rem !important;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .lead {
@@ -131,7 +147,7 @@ h6 {
 }
 
 .bg-grey {
-	background: #f4f7fc;
+	background: #d8d2d4;
 }
 
 .results-title {
@@ -246,8 +262,9 @@ img {
 
 .btn-green {
 	background: transparent !important;
-	color: #fff;
+	color: #482a23;
 	border: 0.1rem solid;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .small-text {
@@ -256,6 +273,7 @@ img {
 	margin-left: 60px;
 	margin-right: 60px;
 	margin-bottom: 60px;
+    font-family: 'Assistant', sans-serif;
 }
 
 .top-margin {
@@ -284,8 +302,8 @@ img {
 }
 
 .btn-white-black:hover {
-	background: #21c87a !important;
-	border-color: #21c87a !important;
+	background: #d3d3d3; !important;
+	border-color: #d3d3d3; !important;
 	color: #fff;
 }
 
@@ -300,7 +318,7 @@ img {
 }
 
 .btn.btn-link {
-	color: #212529;
+	color: #d3d3d3;
 }
 
 .btn:focus {
@@ -314,15 +332,15 @@ img {
 .bg-primary,
 .btn-primary,
 .btn-white:hover {
-	background: #21c87a !important;
-	border-color: #21c87a !important;
+	background: #d3d3d3; !important;
+	border-color: #d3d3d3; !important;
 	color: #fff;
 }
 
 .bg-dark,
 .btn-primary:hover {
-	background: #232323 !important;
-	border-color: #232323 !important;
+	background: #d3d3d3;!important;
+	border-color: #d3d3d3; !important;
 	color: #fff;
 }
 
@@ -330,56 +348,6 @@ img {
 	box-shadow: 0 7px 22px rgba(0, 0, 0, 0.08);
 }
 
-/*------------------------
- BACKGROUND
-----------------------------*/
-.bg-cover {
-	background-repeat: no-repeat;
-	background-position: 50%;
-	background-size: cover;
-}
-
-.bg-cover,
-.bg-overlay,
-.bg-overlay:before {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-}
-
-.bg-overlay:before {
-	content: "";
-	opacity: 0.55;
-	background-color: #212529;
-}
-
-.box-shadow {
-	box-shadow: 0 25px 100px -5px rgba(0, 0, 0, 0.15);
-}
-
-.mt50 {
-	margin-top: 80px;
-}
-
-.mb-30 {
-	margin-bottom: 30px;
-}
-
-.bg-primary {
-	background: #21c87a !important;
-}
-
-a {
-	color: #21c87a;
-}
-
-a:hover,
-a:focus {
-	outline: none;
-	text-decoration: none;
-}
 
 /*----------------------
  HEADER STYLE
@@ -415,7 +383,7 @@ a:focus {
 
 .icon-block {
 	margin-right: 20px;
-	color: #21c87a;
+	color: #ddac81;
 	font-size: 40px;
 	line-height: 20px;
 	font-weight: 400;
@@ -620,11 +588,11 @@ PAGE BANNER
 }
 
 .page-banner-content h1 {
-	color: #fff;
+	color: #482a23;
 }
 
 .page-banner-content p {
-	color: #eee;
+	color: #482a23;
 }
 
 .form-control {
@@ -656,7 +624,7 @@ PAGE BANNER
 }
 
 .navbar-dark .navbar-nav .nav-link {
-	color: rgb(255, 255, 255);
+	color: #482a23;
 	font-weight: 700;
 	letter-spacing: 0.5px;
 	text-transform: uppercase;
@@ -682,7 +650,7 @@ PAGE BANNER
 	transition: opacity 0.15s linear;
 	opacity: 0;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-	background-color: #353a40;
+	background-color: #94949c;
 }
 
 .fixed-top {
@@ -854,7 +822,7 @@ PAGE BANNER
 
 #banner-4 {
 	position: relative;
-	background: url("../images1/surprisedbaby.jpeg") no-repeat;
+	background: url("../images1/D554B5B0-3905-4A75-8D76-2B6269A27948.jpg") no-repeat;
 	background-size: cover;
 }
 
@@ -958,23 +926,25 @@ h5.subtitle {
  WEB SERVICES
 -----------------------*/
 #services-2 {
-	position: relative;
-	background: url("../images1/bg/6.jpg") no-repeat fixed 50% 50%;
-	background-size: cover;
+    position: relative;
+    background: url("../images/cereal-bg.gif") no-repeat fixed 50% 50%;
+    background-size: cover;
+
 }
 
+
 #services-2:before {
-	position: absolute;
-	content: "";
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	background-image: linear-gradient(
-		30deg,
-		rgba(121, 110, 255, 0.95) 0%,
-		rgba(33, 200, 122, 0.95) 100%
-	);
+    position: absolute;
+    content: "";
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        330deg,
+        rgba(245, 162, 162, 0.50) 50%,
+        rgba(216, 210, 212, 0.90) 10%
+    );
 }
 
 .web-service-block {
@@ -1095,6 +1065,10 @@ h5.subtitle {
 .project-content-block p {
 	margin-top: 25px;
 }
+
+
+
+
 
 /*-------------------------
  PORTFOLIO-2
@@ -1389,6 +1363,58 @@ SECTION TESTIMONIAL
 	margin-top: 20px;
 }
 
+/*------------------------
+ BACKGROUND
+----------------------------*/
+.bg-cover {
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: cover;
+}
+
+.bg-cover,
+.bg-overlay,
+.bg-overlay:before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.bg-overlay:before {
+	content: "";
+	opacity: 0.55;
+	background-color: #212529;
+}
+
+.box-shadow {
+	box-shadow: 0 25px 100px -5px rgba(0, 0, 0, 0.15);
+}
+
+.mt50 {
+	margin-top: 80px;
+}
+
+.mb-30 {
+	margin-bottom: 30px;
+}
+
+.bg-primary {
+	background: #ddac81; !important;
+}
+
+a {
+	color: #ddac81;
+}
+
+a:hover,
+a:focus {
+	outline: none;
+	text-decoration: none;
+}
+
+
 /*----------------------
  TETSIMONIAL-2
 -------------------------*/
@@ -1529,7 +1555,7 @@ CONTACT PAGE
 	right: 30px;
 	bottom: 50px;
 	z-index: 999;
-	background: #21c87a;
+	background: #ddac81;
 	color: #fff !important;
 	border-radius: 100%;
 	opacity: 0;

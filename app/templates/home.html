@@ -1,4 +1,4 @@
-<!doctype html>
+ a<!doctype html>
 <html lang="en">
 
 <head>
@@ -6,16 +6,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="it">
-  <meta name="keywords" content="AI, Emotion Detector, AI Project, Deep Learning">
+  <meta name="keywords" content="AI, Cereal Detection, AI Project, Deep Learning">
   
   <meta name="author" content="">
 
-  <title>Emotion Detector</title>
+  <title>Cereal Detector</title>
+  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="/static/plugins/fontawesome/css/all.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400&display=swap" rel="stylesheet">
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+  
 
 </head>
 
@@ -34,12 +44,6 @@
         
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top site-navigation main-nav navbar-togglable">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="{{ url_for('static', filename='images1/ai camp logo1.svg')}}" width="55" height="55" alt="">
-              </a>
-            <a class="navbar-brand" href="#">
-                <h3>Emotion Detector</h3>
-            </a>
             <!-- Toggler -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fa fa-bars"></span>
@@ -50,19 +54,14 @@
                 <!-- Links -->
                 <ul class="navbar-nav row">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#home" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#home" expanded="false">
                                 Links
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarWelcome">
                                  <a class="dropdown-item " target="_blank" href="https://github.com/zikegcwk/aicamp_emotion">
-                                    Github Repo
+                                    Github
                                 </a>
-                                <a class="dropdown-item " target="_blank" href="https://medium.com/@beatrice.miha/i-learned-how-to-learn-dive-into-the-deepest-ocean-3add9449eb7e">
-                                    Beatrice's Post
-                                </a> 
-                                <a class="dropdown-item " target="_blank" href="https://medium.com/@thomaschen395/how-ai-camp-prepared-me-for-the-real-world-7f2a8c28cde5">
-                                    Thomas's Post
-                                </a>
+ 
                         </li>
                         <li class="nav-item ">
                             <a href="#home" class="nav-link">
@@ -76,17 +75,12 @@
                         </li>
                         <li class="nav-item ">
                             <a href="#meet_the_team" class="nav-link">
-                                The Team
+                                Our Team
                             </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="#our_work" class="nav-link">
-                                Our Work
-                            </a>
+
                         </li>
                     </ul>
                 <ul class="ml-lg-auto list-unstyled m-0 nav-btn">
-                    <li><a href="https://michaelzhang1.typeform.com/to/LWIfVW1H?typeform-source=www.ai-camp.org" target="_blank" class="btn btn-green btn-circled btn-two">Register for AI Camp</a></li>
                 </ul>
             </div> <!-- / .navbar-collapse -->
         </div> <!-- / .Container -->
@@ -103,13 +97,12 @@
                    <div class="banner-content2 text-center style-2">
                         <!-- Heading -->
                         <h1 class="display-4 mb-4 ">
-                            AI Emotion Recognition
+                            Cereal Box Detector
                         </h1>
 
                         <!-- Subheading -->
                         <p class="lead mb-5 pr-0">
-                            Created with love from AI Camp @ Stanford StartX.<br>
-An AI project made by high school students.
+                           Save SuperMarkets More Time
                         </p>
 
                         <!-- Button -->
@@ -118,7 +111,7 @@ An AI project made by high school students.
                                     <input id="seefood_input_field" name="file" type="file" onchange="this.form.submit();" hidden/>
                                 </form>
                                 <button href="#" target="_blank" class="btn btn-white btn-circled btn-text">
-                                    <i class="fas fa-camera pr-2 left" aria-hidden="true"></i> Click to see emotion
+                                    <i class="fas fa-camera pr-2 left" aria-hidden="true"></i> Try Out Our Demo Product
                                 </button>
                             </a>
                         </div>
@@ -128,36 +121,57 @@ An AI project made by high school students.
         </div> <!-- / .container -->
     </section>
 
-    <section>
-          <div class = "row no-gutters">
-              <div class = "col">
-                  <img src="{{ url_for('static', filename='images1/happy-450x450-450x450.png')}}" class="img-fluid"/>
-              </div>
-              <div class = "col">
-                <img src="{{ url_for('static', filename='images1/neutral.png')}}" class="img-fluid"/>
-            </div>
-            <div class = "col">
-                <img src="{{ url_for('static', filename='images1/sad.png')}}" class="img-fluid"/>
-            </div>
-            <div class = "col">
-                <img src="{{ url_for('static', filename='images1/suprised.png')}}" class="img-fluid"/>
-            </div>
-          </div>
-    </section>
     <a id="demo"></a>
     <section class="section">
         <div class="row align-items-center justify-content-center">
             <div class="col text-center">
                 <div class="section-heading">
-                <h1 class="section-title mb-4 " >
-                    Watch Our Demo
-                </h1>
-                </div>
-                <iframe src="https://www.youtube.com/embed/xZYPPYvJsv4?modestbranding=1&controls=1&showinfo=0&rel=0&enablejsapi=1&version=3&mute=0&loop=0&playerapiid=iframe_YTP_1564558236662&origin=*&wmode=transparent&iv_load_policy=3&html5=1&widgetid=1&playlist=xZYPPYvJsv4" class="youtube-video-iframe"></iframe>
-                <p class="small-text top-margin"> This is an initial prototype of our detection model where we only tested two emotions: happy and neutral. Since then, our model can predict happy, neutral, surprised, and angry very well!  </p>
+
+               <div>
+                 <div>
+                   <div>
+
+                   </div>
+                 </div>
+                  </div>
+
+                 <!-- insert iamge on top of product description) -->
+                <p class="small-text top-margin"> Cereal Box Detector is a useful product for grocery store workers. Seeing workers consistently walking around to search for unorganized or need of restock shelves is inefficient. And so, we made a product that will detect unorganized shelves or aisles that need restock.</p>
             </div>
         </div>
     </section>
+      
+    <section>
+      <br>
+      <br>
+      <br>
+        
+      
+      
+      
+      </section>
+      
+  
+
+    
+    
+    
+    
+     
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
 
 <a id="meet_the_team"></a>
 <section class="section section-padding" id="services-2">
@@ -176,44 +190,69 @@ An AI project made by high school students.
             <div class="row justify-content-center text-center">
                 <div class="col-lg-4 col-sm-6 col-md-6 mb-30">
                     <div class="web-service-block">
-                        <img class="image-container img-fluid" src="{{ url_for('static', filename='images1/beatrice.jpeg')}}">
-                        <h3>Beatrice Mihalache</h3>
-                        <p>Student at Los Gatos High School</p>
-                        <p>Beatrice enjoys the quick-paced learning style of AI Camp. She contributed to our data extraction and website frontend.</p>
+                        <img 
+                             class="image-container img-fluid" 
+                             src="{{ url_for('static', filename='images1/283B311D-39B3-4C1B-B04C-379CBEB23019_4_5005_c.jpeg')}}"
+                             width=500
+                             height=500>
+
+                        <h3>Mahnoor Babra</h3>
+                        <p>Student at Merrill F. West High School</p>
+                        <p>I am a rising sophomore at West High School.I enjoy learning new things and this AI camp was a wonderful opportunity for me to learn coding. I enjoyed working with my peers to create an amazing prototype.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 col-md-6 mb-30">
                     <div class="web-service-block">
-                        <img class="image-container img-fluid" src="{{ url_for('static', filename='images1/ary.jpeg')}}">
-                        <h3>Aryansh Chikkere</h3>
-                        <p>Student at American High School</p>
-                        <p>Ari enjoys studying Physics and improving code. He built the initial backend of this website.</p>
+                        <img class="image-container img-fluid"
+                             src="{{ url_for('static', filename='images1/4823AE7E-81FE-4AB2-92F3-31B25D479A30_4_5005_c.jpeg')}}"
+                             width=500
+                             height=500>
+                        <h3> Victoria Li</h3>
+                        <p>Student at Clark High School </p>
+                        <p>I'm going into my sophomore year of high school at Clark High School in Las Vegas, Nevada. During my free time I enjoy playing sports and crocheting for friends! I'm also passionate on the topic of CS, my plan for the future is to major in computer science or software engineering! </p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 col-md-6 mb-30">
                     <div class="web-service-block">
-                        <img class="image-container img-fluid" src="{{ url_for('static', filename='images1/thomas.jpeg')}}">
-                        <h3>Thomas Chen</h3>
-                        <p>Student at Irvington High School</p>
-                        <p>Thomas enjoys experimenting with code. He created a script to retrieve data from Bing and wrote the website HTML.</p>
+                        <img class="image-container img-fluid" 
+                             src="{{ url_for('static', filename='images1/A8CA80AA-9D8C-4A7A-991F-0C25D1644489_4_5005_c.jpeg')}}"
+                             width=500
+                             height=500>
+                        <h3>Kevin Kim</h3>
+                        <p>Branham High School</p>
+                        <p>I'm Kevin Kim, and a 10th grader at Branham High School. I want to be a pilot or software engineer when I grow up and creating new programs were always part of my passion!</p>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-sm-6 col-md-6 ">
                     <div class="web-service-block">
-                        <img class="image-container img-fluid" src="{{ url_for('static', filename='images1/clement.jpeg')}}">
-                        <h3>Clement Ou</h3>
-                        <p>Student at Gunn High School</p>
-                        <p>Clement enjoys writing scripts and coding. He trained a neural network by using a deep learning instance in AWS.</p>
+                        <img class="image-container img-fluid" src="{{ url_for('static', filename='images1/A9802FB4-6E81-4F8C-B07A-8943728D3FA5_4_5005_c.jpeg')}}"
+                             width=500
+                             height=500>
+                        <h3>Daniel Mercier</h3>
+                        <p>Student of Helen Stacey Middle School</p>
+                        <p>I'm Daniel Mercier and a 7th grader that wants to fluently make code. I love to train in martial arts, and I have the basic skills of 7th-8th grade math on my side.</p>
+                    </div>
+                </div>
+               <div class="col-lg-4 col-sm-6 col-md-6 ">
+                    <div class="web-service-block">
+                        <img class="image-container img-fluid" src="{{ url_for('static', filename='images1/9185A7F8-7A11-4F20-A4C1-7215CD8C62C3_4_5005_c.jpeg')}}"
+                             width=500
+                             height=500>
+                       <h3>Danzel Ngo</h3>
+                        <p>Student at Oakland Charter High School</p>
+                        <p> I'm Danzel Ngo, a 9th grader at Oakland Charter High School who wants to know how to make code.  In my free time, I like to play video games, sleep, watch movies/tv shows, and hang out with friends.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 col-md-6 ">
                     <div class="web-service-block">
-                        <img class="image-container img-fluid" src="{{ url_for('static', filename='images1/muti.jpeg')}}">
-                        <h3>Muti Shuman</h3>
-                        <p>Student at Junipero Serra High School</p>
-                        <p>Muti enjoys playing basketball. He built scripts to capture data using OpenCV and prepared data for training.</p>
-                    </div>
+                        <img class="image-container img-fluid" src="{{ url_for('static', filename='images1/107E5B0E-17A5-4D00-9B66-C6BF365DDF57_4_5005_c.jpeg')}}"
+                             width=500
+                             height=500>
+                        <h3>Ethan Le</h3>
+                        <p>Student at Evergreen High School</p>
+                        <p>I'm Ethan Le, and a 9th grader that has aspiring dreams to be a software engineer. For me, programming to create new things has always been my passion.</p>
+                    </div><h2></h2><h1></h1>
                 </div>
             </div>
                 <div class="row justify-content-center">
@@ -221,7 +260,7 @@ An AI project made by high school students.
                         <div class="section-heading">
                             <!-- Heading -->
                             <h2 class="section-title section-text">
-                                Our Intructors
+                                Our Mentor
                             </h2>
                         </div>
                     </div>
@@ -230,18 +269,10 @@ An AI project made by high school students.
                 <div class="row justify-content-center">
                     <div class="col-lg-4 col-sm-6 col-md-6">
                         <div class="web-service-block">
-                            <img class="image-container img-fluid" src="{{ url_for('static', filename='images1/michael.jpeg')}}">
-                            <h3>Michael Ke Zhang</h3>
-                            <p>Stanford Ph.D</p>
-                            <p>Michael ran data teams at Blend Labs and Grab. He enjoys fishing and inspiring the next generation of students.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 col-md-6">
-                        <div class="web-service-block">
-                            <img class="image-container img-fluid" src="{{ url_for('static', filename='images1/ying.jpeg')}}">
-                            <h3>Ying Jiang</h3>
-                            <p>Stanford Ph.D</p>
-                            <p>Ying is a Lead Data Scientist at Ericsson. She is passionate in education, data analysis, and continuous learning.</p>
+                            <img class="image-container img-fluid" src="{{ url_for('static', filename='images/mehdi-profile.jpeg')}}">
+                            <h3>Adam Mehdi</h3>
+                            <p>Columbia University </p>
+                            <p>I'm Adam Mehdi, a Data Science Instructor at AI Camp. I am is pursuing a Bachelors of Science in Computer Science at Columbia University School of Engineering and Applied Science. In my free time, I like to take long walks, drink black coffee, and read good books, in that order.</p>
                         </div>
                     </div>
                 </div>
@@ -253,168 +284,9 @@ An AI project made by high school students.
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6 text-center">
                         <!-- Heading -->
-                        <h2 class="section-title">
-                            Our Work
-                        </h2>
-                        <!-- Subheading -->
-                </div>
-            </div> <!-- / .row -->
-            <div class="row justify-content-center text-center">
-                <p class="small-text">
-                    Learn about two students's experience at AI Camp, <br>from the beginning to the end!
-                </p>
-            </div>
-            <div class="row justify-content-center align-items-end">
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-box">
-                        <div class="blog-img-box">
-                            <img src="{{ url_for('static', filename='images1/brain.jpeg')}}" alt="" class="img-fluid blog-img">
-                        </div>
-                        <div class="single-blog">
-                            <div class="blog-content">
-                                <h6>28 July 2019</h6>
-                                <a target="_blank" href="https://medium.com/@beatrice.miha/i-learned-how-to-learn-dive-into-the-deepest-ocean-3add9449eb7e">
-                                    <h3 class="card-title">I learned how to learn: Dive into the deepest ocean</h3>
-                                </a>
-                                <p>Learn about Beatrice's experience at AI Camp, from the beginning to the end!</p>
-                                <a target="_blank" href="https://medium.com/@beatrice.miha/i-learned-how-to-learn-dive-into-the-deepest-ocean-3add9449eb7e" class="read-more">Read More</a>
+
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-box">
-                        <div class="blog-img-box">
-                            <img src="{{ url_for('static', filename='images1/happy.png')}}" alt="" class="img-fluid blog-img">
-                        </div>
-                        <div class="single-blog">
-                            <div class="blog-content">
-                                <h6> 5 August 2019</h6>
-                                <a target="_blank" href="https://medium.com/@thomaschen395/how-ai-camp-prepared-me-for-the-real-world-7f2a8c28cde5">
-                                    <h3 class="card-title">How AI Camp Prepared Me for the Real World</h3>
-                                </a>
-
-                                <p> Thomas' experience at AI Camp, from the beginning to the end!</p>
-                                 <a target="_blank" href="https://medium.com/@thomaschen395/how-ai-camp-prepared-me-for-the-real-world-7f2a8c28cde5" class="read-more">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="projects" class="section-bottom">
-        <div class="container">
-            <div class="row py-4">
-                <div class="col-lg-7 col-md-12 col-sm-12 ">
-                    <div class="single-project">
-                        <img src="{{ url_for('static', filename='images1/bg/banner_bg.jpg')}}" alt="" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-sm-12 ">
-                    <div class="project-content-block">
-                        <h4>Github</h4>
-                        <h2>Want to see the building process of our project?</h2>
-                        <p>Explore the inner workings of our project, from capturing data scripts to YOLO training!</p>
-                        <p class="mb-0">
-                            <a href="https://github.com/zikegcwk/aicamp_emotion" target="_blank" class="btn btn-white-black btn-circled">
-                                AI Camp Repository
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
- <footer class="section " id="footer">
-        <div class="overlay footer-overlay"></div>
-        <!--Content -->
-        <div class="container">
-            <div width="100%" class="row">
-                <div class="col justify-content-center align-items-center text-center">  
-                <div class="footer-widget">
-                        <!-- Brand -->
-                        <a href="#" class="footer-brand text-white">
-                            <h2 class="section-title section-text">AI Camp</h2>
-                        </a>
-                        <h1>Learn AI in three weeks with zero coding experience.</h1>
-                        <p>AI Camp teaches middle and high school students machine learning and career frameworks through real life experience. <br>Prepare for your major and career by joining us!</p>
-                        <p class="mb-0">
-                            <a href="https://michaelzhang1.typeform.com/to/LWIfVW1H?typeform-source=www.ai-camp.org" target="_blank" margin-bottom="20px" class="btn btn-text btn-results btn-white btn-circled">
-                                Register for AI Camp
-                            </a>
-                        </p>
-                </div>
-                <div class="footer-widget footer-about">
-                    <h3>About</h3>
-                    <!-- Links -->
-                    <ul class="footer-links ">
-                        <li>
-                            <u>
-                            <a href="https://www.ai-camp.org/" target="_blank">
-                                AI Camp Website
-                            </a>
-                            </u>
-                        </li>
-                        <li>
-                            <u>
-                            <a href="https://www.ai-camp.org/terms-of-service" target="_blank">
-                                Terms of Services
-                            </a>
-                            </u>
-                        </li>
-                        <li>
-                            <u>
-                            <a href="https://www.ai-camp.org/privacy-notice" target="_blank">
-                                Privacy Policy
-                            </a>
-                        </u>
-                        </li>
-                        <li>
-                            <u>
-                            <a href="https://www.ai-camp.org/faq" target="_blank">
-                                Frequently Asked Questions
-                            </a>
-                        </u>
-                        </li>
-                        <li>
-                            <u>
-                            <a href="mailto: hello@ai-camp.org" target="_blank">
-                                Contact
-                            </a>
-                        </u>
-                        </li>
-                        <li>
-                        <u>
-                            <a href="https://www.youtube.com/channel/UCUGJzo5EwViLGpAgYphNyzg/featured" target="_blank">
-                                YouTube
-                            </a>
-                        </u>
-                        </li>
-                    </ul>
-            </div>  
-                </div>
-            </div> <!-- / .row -->
-
-
-            <div class="row text-right pt-5">
-                <div class="col-lg-12">
-                    <!-- Copyright -->
-                    <p class="footer-copy ">
-                        &copy; Copyright <span class="current-year">AI Camp</span> All rights reserved.
-                    </p>
-                </div>
-            </div> <!-- / .row -->
-        </div> <!-- / .container -->
-    </footer>
-
-
-    <!--  Page Scroll to Top  -->
-
-    <a class="scroll-to-top" href="#top-header">
-        <i class="fa fa-angle-up"></i>
-    </a>
 
 
     <!-- 

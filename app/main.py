@@ -2,9 +2,29 @@ from flask import send_from_directory
 from flask import Flask, flash, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from flask import render_template
-from url_utils import get_base_url
 import os
 import torch
+import json
+import os
+
+def get_base_url(port:int) -> str:
+    '''
+    Returns the base URL to the webserver if available.
+    
+    i.e. if the webserver is running on coding.ai-camp.org port 12345, then the base url is '/<your project id>/port/12345/'
+    
+    Inputs: port (int) - the port number of the webserver
+    Outputs: base_url (str) - the base url to the webserver
+    '''
+    
+    try:
+        info = json.load(open(os.path.join(os.environ['HOME'], '.smc', 'info.json'), 'r'))
+        project_id = info['project_id']
+        base_url = f'/{project_id}/port/{port}/'
+    except Exception as e:
+        print(f'Server is probably running in production, so a base url does not apply: \n{e}')
+        base_url = '/'
+    return base_url
 
 # setup the webserver
 # port may need to be changed if there are multiple flask servers running on same server
@@ -87,9 +107,10 @@ def uploaded_file(filename):
         labels = set(labels)
         labels = [emotion.capitalize() for emotion in labels]
         labels = and_syntax(labels)
+        new_filename = filename.split('.')[0] + ".jpg"
         return render_template('results.html', confidences=format_confidences, labels=labels,
                                old_filename=filename,
-                               filename=filename)
+                               filename=new_filename)
     else:
         found = False
         return render_template('results.html', labels='No Emotion', old_filename=filename, filename=filename)
@@ -99,6 +120,20 @@ def uploaded_file(filename):
 def files(filename):
     return send_from_directory(UPLOAD_FOLDER, filename, as_attachment=True)
 
+# for CSS to reload
+# @app.context_processor
+# def override_url_for():
+#     return dict(url_for=dated_url_for)
+
+# def dated_url_for(endpoint, **values):
+#     if endpoint == 'static':
+#         filename = values.get('filename', None)
+#         if filename:
+#             file_path = os.path.join(app.root_path,
+#                                  endpoint, filename)
+#             values['q'] = int(os.stat(file_path).st_mtime)
+#     return url_for(endpoint, **values)
+
 # define additional routes here
 # for example:
 # @app.route(f'{base_url}/team_members')
@@ -107,7 +142,7 @@ def files(filename):
 
 if __name__ == '__main__':
     # IMPORTANT: change url to the site where you are editing this file.
-    website_url = 'url'
+    website_url = 'https://cocalc2.ai-camp.dev'
     
     print(f'Try to open\n\n    https://{website_url}' + base_url + '\n\n')
     app.run(host = '0.0.0.0', port=port, debug=True)
