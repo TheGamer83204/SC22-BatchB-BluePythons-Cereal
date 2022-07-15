@@ -8,33 +8,49 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/aisle.png')}}" type="image/x-icon">
     <meta name="description" content="">
 
-    <title>results</title>
+    <title>Results</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='plugins/fontawesome/css/all.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-      <section class="mbr-section mbr-section-nopadding" id="services-2" data-rv-view="5" style="padding-top: 60px; margin-top: 60px; padding-bottom: 60px">
-            <div class="row">
-                <div class="col-sm-12 col-lg-6 text-center">
-                    <h3 class="section-title display-4 results-title"></h3>
+      <section class="mbr-section" id="services-2" data-rv-view="5" style="padding-top: 60px; margin-top: 5rem; padding-bottom: 5rem;">
+                <div class="col-sm-12 col-lg-6 text-center"></div><div>
+        <div>
+            <h1>
+                  <br>
+              
+          </h1>
+          <h1>
+            <br>
+          </h1>
+          <h1>
+            <br>
+          </h1>
+          <h1>
+            <br>
+          </h1>
+        </div>
+        </div>
 
-                    <div class="lead">
-                        <p class="section-text results-text"></p>
-                    </div>
-
-                </div>
-            </div>
     </section>
   
-    <section id="msg-box4-2" data-rv-view="2" style="background-color: rgb(0,0,0); margin-top: 8rem; padding-top: 3rem; padding-bottom: 0rem;">
+    <section id="msg-box4-2" data-rv-view="2" style=" background-color: rgba(180, 165, 168, .3); margin-top: 3rem; padding-top: 2rem; padding-bottom: 0rem;">
             <div class="container">  
         <div class="row">
-           <!--  <h3 class="lead" color="#ffffff">Your Cereal Aisle</h3> -->
+       
                 <div class="col justify-content-center align-items-center text-center">
-                    <div class="lead" color="white"><em>The aisle has been marked with the label <q>{{labels}}</q> with {{confidences}} confidence, respectively.</em></div>
+                    <div class="lead" style= font-family: "Quicksand" color: #d8d2d5; > <h3 class="section-title display-4 results-title" style=color:#482a23;>
+                       Here's what we found!
+                       </h3><em>The aisle has been marked with the label <q>{{labels}}</q> with {{confidences}} confidence, respectively.</em></div>
 
                     <a class="mb-0" id='seefood_button'>
                         <form action="/" id='seefood_form' method=post enctype=multipart/form-data>
@@ -52,10 +68,10 @@
             </div>
     </section>
 
-    <section class="mbr-section mbr-section-nopadding" id="services-2" data-rv-view="5" style="padding-top: 60px; margin-top: 60px; padding-bottom: 60px">
+    <section class="mbr-section mbr-section-nopadding" id="msg-box4-2" data-rv-view="5" style="background-color:rgba(167, 44, 42, 0.10); padding-top: 60px; margin-top: 60px; padding-bottom: 60px">
             <div class="row">
                 <div class="col-sm-12 col-lg-6 text-center">
-                    <h3 class="section-title display-4 results-title">How the Cereal Restock Detector work?</h3>
+                    <h3 class="section-title display-4 results-title">How does Cereal Sentinel work?</h3>
 
                     <div class="lead">
                         <p class="section-text results-text">Our team collected images from Google images and labeled them using Roboflow. We trained YOLOv5 on that dataset and put our trained model on this website.&nbsp;</p>
@@ -65,24 +81,78 @@
                 <div class="col-sm-12 col-lg-6">
                     <img class="mbr-figure-graph" src="{{ url_for('static', filename='images/PR_curve.png')}}">
                 </div>
-            </div>
+            </div><br>
+                                                                                                              
+                                                                                                              </h3>
+                 <p align= "center" color="white">
+      At our confidence threshold, our model has a precision of approximately 0.8 and a recall of approximately 0.1.
+      </p>
     </section>
+                                                                                                   
+        
   
 
-  <section class="mbr-section mbr-section-nopadding" id="services-2" data-rv-view="5" style="padding-top: 60px; margin-top: 60px; padding-bottom: 60px">
+  <section class="mbr-section mbr-section-nopadding" id="msg-box4-2" data-rv-view="5" style="background-color:rgba(167, 44, 42, 0.10); padding-top: 60px; margin-top: 60px; padding-bottom: 60px">
             <div class="row">
                 <div class="col-sm-12 col-lg-6 text-center">
-                    <h3 class="section-title display-4 results-title">Evaluation of the Model</h3>
+                    <h3 class="section-title display-4 results-title">Evaluation</h3>
 
                     <div class="lead">
-                        <p class="section-text results-text">What is the F1 score of our model? What is a F1 score? Is that good for the task? Where can our model improve? Which classes is our model better at, restock, out-of-place, or disorganized?</p>
+                        <p class="section-text results-text">We trained YOLOv5 using Google Colab's GPU and evaluated it using Weights and Biases. We trained three runs, and found that the second run performed best. To the right are some plots from our second run. </p>
                     </div>
 
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <img class="mbr-figure-graph" src="{{ url_for('static', filename='images/PR_curve.png')}}">
+                    <img class="mbr-figure-graph" src="{{ url_for('static', filename='images1/results.png')}}">
+                    
+                </div>
+            </div>                                                                                               
+     <p align= "center" color="white">
+       We can see that the training losses decreased consistently with epochs (x-axis), but the validation losses increased. <br> This behavior is consistent with overfitting. Therefore, we use the model weights of epoch 42.
+      </p>
+    </section>
+  
+  <!-- Confusion Matrix -->
+                                                                                      
+                                                                                     
+  <section class="mbr-section mbr-section-nopadding" id="msg-box4-2" data-rv-view="5" style="background-color:rgba(167, 44, 42, 0.10); padding-top: 60px; margin-top: 60px; padding-bottom: 60px">
+            <div class="row">
+                <div class="col-sm-12 col-lg-6 text-center">
+                    <h3 class="section-title display-4 results-title">Dataset</h3>
+
+                    <div class="lead">
+                        <p class="section-text results-text">We used SerpAPI to scrape images from Google Images. Then we used Roboflow to label the images and apply  several data augmentations. As illustrated at the right, our model suffers from class imbalance and noisy labels.
+                          <br><br>
+                          We ran into this class imbalance because Google Images is more likely to display cereal aisles in need of restocking, while out-of-place and disorganized objects are less prevalent. We also have many different labels for "restock" and "disorganized." However, in our subsequent iterations of training where we removed the noisy labels, the models performed worse. Hence we kept the redundant labels.
+</p>
+                    </div>
+
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <img class="mbr-figure-graph" src="{{ url_for('static', filename='images1/Screen Shot 2022-07-14 at 11.30.14 AM.png')}}">
                 </div>
             </div>
+    </section>
+  <section class="mbr-section mbr-section-nopadding" id="msg-box4-2" data-rv-view="5" style="background-color:rgba(167, 44, 42, 0.10); padding-top: 60px; margin-top: 60px; padding-bottom: 60px">
+            <div class="row">
+                <div class="col-sm-12 col-lg-6 text-center">
+                    <h3 class="section-title display-4 results-title">Confusion Matrix</h3>
+
+                    <div class="lead">
+                        <p class="section-text results-text">The confusion matrix underscores the precision and recall metrics. Our model's high precision means that any prediction our model makes is likely to have a corresponding true label, but its low recall means that our model retrieves only a fraction of true labels.</p>
+                    </div>
+
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <img class="mbr-figure-graph" src="{{ url_for('static', filename='images/Screen Shot 2022-07-14 at 2.03.28 PM.png')}}">
+                </div>
+            </div>
+    
+    <div></div>
+     <p align= "center" color="white">
+      This is ideal behavior for an understaffed grocery store because it means that an employee will not be barraged with false notifications that a cereal aisle needs attention.
+      </p>
+ 
     </section>
 
     <footer id="footer">
@@ -90,19 +160,16 @@
         <!--Content -->
         <div class="container">
             <div width="100%" class="row">
-                <div class="col justify-content-center align-items-center text-center">  
+                <div class="col justify-content-center align-items-center text-center"
+                  style= background-color: rgba(180, 165, 168, .3); >
                 <div class="footer-widget">
                         <!-- Brand -->
                         <a href="#" class="footer-brand text-white">
-                            <h2 class="section-title section-text">Cereal Restock Detector</h2>
+                            <h2 class="section-title section-text">Cereal Sentinel</h2>
                         </a>
                         <h1>Improving efficiency in your local supermarket.</h1>
                         <p>Cereal Restock Detector detects whether the aisle needs tending to. It can detect out-of-place objects and disorganized places, but its strong suit is detecting areas that need to be restocked.</p>
-                        <p class="mb-0">
-                            <a href="https://michaelzhang1.typeform.com/to/LWIfVW1H?typeform-source=www.ai-camp.org" target="_blank" margin-bottom="20px" class="btn btn-text btn-white btn-circled">
 
-                            </a>
-                        </p>
                 </div>
                 </div>
             </div> <!-- / .row -->

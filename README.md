@@ -47,13 +47,13 @@ The "restock" label is by far more prominent than the others. We ran into this p
 
 #### How did we train the model? 
 
-We trained YOLOv5 using Google Colab's GPU and evaluated it using weights and biases. We trained three runs, and found that the second run performed the best. Here are some plots from our second plot:
+We trained YOLOv5 using Google Colab's GPU and evaluated it using weights and biases. We trained three runs, and found that the second run performed the best. Here are some plots from our second run:
 
 <img src="app/static/images1/results.png"   width="900"  height="450"  style="object-fit:cover"/>
 <div>
-    
-We can see that the training losses decreased consistently with epochs (x-axis), but the validation losses increased. This behavior is consistent with overfitting, so the model performs words at a larger epoch. Therefore, we are using the weights of our model at epoch 42, which was found to have the lowest validation losses. At this epoch, our model has a precision of approximately 0.8 and a recall of approximately 0.1. The high precision means that any prediction our model makes is likely to have a corresponding true label, but the low recall means that our model retrieves only a fraction of true labels. This is ideal behavior for an understaffed grocery store because it means that an employee will not be barraged with false notifications that a cereal aisle needs tending.
-  
+
+We can see that the training losses decreased consistently with epochs \(x\-axis\), but the validation losses increased. This behavior is consistent with overfitting, so the model performs worse at a larger epoch. Therefore, we are using the weights of our model at epoch 42, which was found to have the lowest validation losses. At this epoch, our model has a precision of approximately 0.8 and a recall of approximately 0.1. The high precision means that any prediction our model makes is likely to have a corresponding true label, but the low recall means that our model retrieves only a fraction of true labels. This is ideal behavior for an understaffed grocery store because it means that an employee will not be barraged with false notifications that a cereal aisle needs tending.
+
 <div>
 
 ## Our Team
